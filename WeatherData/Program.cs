@@ -1,6 +1,8 @@
-﻿namespace WeatherDataPrimer
+﻿using WeatherDataProject;
+
+/*namespace WeatherDataPrimer
 {
-    class WeatherData
+    class NotWeatherData
     {
 
         static bool Checker(int a, int min, int max)
@@ -10,18 +12,10 @@
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Input Values");
 
-            string scale;
-            string temperature;
-            int tempnum;
-            string humidity;
-            int humNum;
-            string input = "x";
-            Console.Write("Select Scale F/C:");
-            scale = Console.ReadLine().ToUpper();
+            
             Console.Write("Input Temp:");
-            temperature = Console.ReadLine();
+            
             Console.Write("Input Humidity:");
             humidity = Console.ReadLine();
 
@@ -33,15 +27,15 @@
 
                 if (scale == "F" && int.TryParse(temperature, out tempnum) && Checker(tempnum, min: -76, max: 140) && int.TryParse(humidity, out humNum) && Checker(humNum, min: 0, max: 100))
                 {
-                    Console.WriteLine($"Temperature: {tempnum}{scale}° and {humidity}% humidity");
                     Console.WriteLine("Do you want to convert");
+
                     Console.WriteLine("Y?/N?");
                     input = Console.ReadLine();
                     if (input.ToUpper() == "Y")
                     {
                         scale = Convert(scale);
                         tempnum = Convert(tempnum, scale);
-                        
+                        Console.WriteLine($"Temperature: {tempnum}{scale}° and {humidity}% humidity");
                     }
                     else if (input.ToUpper() == "N")
                     {
@@ -52,7 +46,6 @@
                 }
                 else if (scale == "C" && int.TryParse(temperature, out tempnum) && Checker(tempnum, min: -60, max: 60) && int.TryParse(humidity, out humNum) && Checker(humNum, min: 0, max: 100))
                 {
-                    Console.WriteLine($"Temperature: {temperature}{scale}° and {humidity}% humidity");
                     Console.WriteLine("Do you want to convert");
                     Console.WriteLine("Y?/N?");
                     input = Console.ReadLine();
@@ -60,7 +53,7 @@
                     {
                         scale = Convert(scale);
                         tempnum = Convert(tempnum, scale);
-                        
+                        Console.WriteLine($"Temperature: {temperature}{scale}° and {humidity}% humidity");
                     }
                     else if (input.ToUpper() == "N")
                     {
@@ -109,4 +102,21 @@
             return scale;
         }
     }
-}
+}*/
+
+WeatherData wd = new WeatherData();
+
+Console.Write("Select Scale F/C:");
+wd.Scale = Console.ReadLine().ToUpper();
+
+
+Console.Write("Input Temp:");
+wd.Temperature = int.Parse(Console.ReadLine());
+Console.Write("Input Humidity:");
+wd.Humidity = int.Parse(Console.ReadLine());
+
+Console.WriteLine($"Temp: {wd.Temperature} -- Scale: {wd.Scale} -- Hum: {wd.Humidity}%");
+
+wd.Convert();
+Console.WriteLine("Converted");
+Console.WriteLine($"Temp: {wd.Temperature} -- Scale: {wd.Scale} -- Hum: {wd.Humidity}%");
