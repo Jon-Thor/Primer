@@ -25,10 +25,7 @@ namespace WeatherDataProject
                         throw new Exception("Must be under 140F° and over -76F°");
                     }
 
-                }
-                
-                
-                
+                }    
                 
                 else if (Scale.ToUpper() == "C")
                 {
